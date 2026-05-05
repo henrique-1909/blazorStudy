@@ -1,0 +1,53 @@
+@page "/exemplo2"
+@rendermode InteractiveServer
+
+<div class="alert alert-primary" role="alert">
+@Alert
+</div>
+
+<form class="row g-2">
+
+    <div class="col-md-6">
+    <label for="nome">Nome</label>
+    <input type="text" id="nome" class="form-control"  @bind-value="xNome"/>
+    </div>
+    
+@if (!string.IsNullOrEmpty(xNome)){
+    <div class="col-12">
+    <button type="button" class="btn btn-primary d-block w-100" @onclick="Enviar">Enviar</button>
+    </div>
+}
+
+<div class="col-12">
+    <p>Nome do cliente: @henrique.Nome</p>
+</div>
+
+</form>
+
+@code{
+    private string xNome = "";
+
+    private string Alert = "Preencha o campo para habilitar o salvar.";
+
+    private Cliente henrique = new Cliente();
+
+    private void Enviar()
+    {
+
+        Alert = "Formulário enviado com sucesso!";
+
+        henrique.Nome = xNome;
+
+    }
+
+    private class Cliente
+    {
+        public string Nome { get; set; } = "";
+    
+
+        public Cliente (){
+        }
+        
+    }
+}
+
