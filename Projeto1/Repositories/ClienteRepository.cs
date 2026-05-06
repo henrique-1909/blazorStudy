@@ -1,6 +1,6 @@
-using Projeto1.Components;
 using Projeto1.Interfaces;
 using Projeto1.Models;
+using Projeto1.Data;
 
 namespace Projeto1.Repositories
 {
